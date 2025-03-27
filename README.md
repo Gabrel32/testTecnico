@@ -17,19 +17,14 @@ Prueba tecnica para Disruptive Talent, El proyecto incluye una aplicación que p
 
 ### Instalación
 
-#### Paso 1: Clonar el repositorio
 
-```bash
-git clone https://github.com/tu-usuario/disruptive-talent.git
-```
-
-#### Paso 2: Instalar dependencias
+#### Paso 1: Instalar dependencias
 
 ```bash
 npm install
 ```
 
-#### Paso 3: Iniciar la aplicación
+#### Paso 2: Iniciar la aplicación
 
 ```bash
 npm run dev
@@ -41,25 +36,3 @@ npm run dev
 2. Rellena los campos de la simulación y calcula los intereses
 3. Visualiza los resultados de la simulación
 
-### Contribución
-
-#### Paso 1: Crear un fork del repositorio
-
-Crea un fork del repositorio en tu cuenta de GitHub.
-
-#### Paso 2: Realizar cambios
-
-Realiza los cambios que desees en tu fork.
-
-#### Paso 3: Crear un pull request
-
-Crea un pull request para que tus cambios sean revisados y aprobados.
-
-### Licencia
-
-Este proyecto está licenciado bajo la licencia MIT.
-
-### Créditos
-
-* [Tu nombre] - Creador del proyecto
-* [Nombres de otros contribuyentes] - Contribuyentes al proyecto
