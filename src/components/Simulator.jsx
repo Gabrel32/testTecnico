@@ -36,10 +36,9 @@ function Simulator() {
   }
 
   function resetForm() {
-    setIsAnimating(true);
     setTimeout(() => {
       setFormData({
-        amount: '',
+        amount: "",
         currency: 'MXN',
         benefitType: "beneficio simple",
         investmentTime: "",
@@ -50,7 +49,6 @@ function Simulator() {
         amount: false,
         investmentTime: false
       });
-      setIsAnimating(false);
     }, 300);
   }
 
@@ -156,7 +154,8 @@ function Simulator() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {investmentOptions.map((item, index) => (
-                <div 
+                <label 
+                  htmlFor={`option-${item.months}`}
                   key={item.months} 
                   onClick={handleInputChange} 
                   className={`
@@ -181,16 +180,16 @@ function Simulator() {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label htmlFor={`option-${item.months}`} className={`font-medium ${
+                    <span className={`font-medium ${
                       errors.investmentTime ? 'text-red-600' : 'text-gray-700'
                     }`}>
                       {item.months} meses
-                    </label>
+                    </span>
                     <p className={errors.investmentTime ? 'text-red-500' : 'text-gray-500'}>
                       {item.percentage}% de interés mensual
                     </p>
                   </div>
-                </div>
+                </label>
               ))}
             </div>
             {errors.investmentTime && (
@@ -218,6 +217,7 @@ function Simulator() {
             <div className="mt-2">
               <button
                 type="submit"
+                aria-label='Simular'
                 className="btn-effect w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
               >
                 {isAnimating ? (
@@ -232,7 +232,7 @@ function Simulator() {
               <button
                 type="button"
                 onClick={resetForm}
-                className="btn-effect w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
+                className="btn-effect w-full flex justify-center py-3 px-4 rounded-md shadow-sm text-sm font-medium text-sky-700 bg-transparent border-2 border-sky-700  focus:outline-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
               >
                 Restablecer
               </button>
@@ -268,7 +268,7 @@ function Simulator() {
                   ["Tasa mensual", `${formData.percentage}%`],
                   ["Tipo de interés", formData.benefitType],
                   ["Interés generado", `${formData.currency} ${result.interest.toLocaleString('es-MX', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`],
-                  ["Total final", `${formData.currency} ${result.total.toLocaleString('es-MX', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`, true]
+                  ["Monto total", `${formData.currency} ${result.total.toLocaleString('es-MX', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`, true]
                 ].map(([concept, value, isHighlighted], index) => (
                   <tr 
                     key={index} 
@@ -292,6 +292,7 @@ function Simulator() {
                 setModal(true);
                 setIsOpen(true);
               }}
+              aria-label='retirar'
               className="btn-effect mt-4 w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 active:scale-95 animate-fade-in-up"
               style={{ animationDelay: '0.45s' }}
             >

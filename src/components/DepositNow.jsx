@@ -52,6 +52,7 @@ function DepositNow() {
                 <button 
                     onClick={handleDeposit}
                     disabled={loading?.deposit}
+                    name="depositar ahora"
                     className={`
                         py-3 px-6 rounded-md font-medium text-white transition-all 
                         duration-300 ease-in-out flex-1 sm:flex-none btn-effect
@@ -127,12 +128,14 @@ function DepositNow() {
                            
                         </div>
 
-<button
-  aria-label={`Cerrar modal de ${title}`} // Usa el título del modal
-  className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center text-xl bg-red-500 hover:bg-red-600 rounded-md text-white transition-all duration-300 active:scale-90 btn-effect"
->
-  ×
-</button>
+                        <button
+                            onClick={handleCloseModals}
+                            id="close-modal"
+                            aria-label="×"
+                            className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center text-xl bg-red-500 hover:bg-red-600 rounded-md text-white transition-all duration-300 active:scale-90 btn-effect"
+                            >
+                          ×
+                        </button>
                     </div>
                 </ConfirmModal>
             )}
@@ -145,12 +148,14 @@ function DepositNow() {
                     title="Estado del Pago"
                 >
                     <div className="animate-slide-up flex flex-col gap-4 p-10 relative">
-                    <button
-  aria-label={`Cerrar modal de ${title}`} // Usa el título del modal
-  className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center text-xl bg-red-500 hover:bg-red-600 rounded-md text-white transition-all duration-300 active:scale-90 btn-effect"
->
-  ×
-</button>
+                        <button
+                            onClick={handleCloseModals}
+                            id="close-modal"
+                            aria-label="×"
+                            className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center text-xl bg-red-500 hover:bg-red-600 rounded-md text-white transition-all duration-300 active:scale-90 btn-effect"
+                            >
+                          ×
+                        </button>
                         
                         <div className={`
                             rounded-lg p-4 transition-all duration-500 ease-in-out 
